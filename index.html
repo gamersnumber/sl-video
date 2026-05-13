@@ -2,31 +2,18 @@
 <html>
 <head>
     <style>
-        /* This part forces the content to stay centered no matter the prim size */
-        body, html { 
-            margin: 0; padding: 0; height: 100%; width: 100%; 
-            background: black; 
-            display: flex; 
-            align-items: center; /* Centers vertically */
-            justify-content: center; /* Centers horizontally */
-            overflow: hidden;
-        }
-        .video-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: black; }
         iframe { 
-            width: 100%; 
-            height: 100%; 
-            border: none; 
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+            /* This forces the video to stretch and fill every pixel */
+            object-fit: cover; 
         }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL2AurSMq2mklYE1m3BFTHRZDDAV_lqtK7&autoplay=1&mute=1" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL2AurSMq2mklYE1m3BFTHRZDDAV_lqtK7&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </body>
 </html>
