@@ -2,29 +2,25 @@
 <html>
 <head>
     <style>
-        /* Forces the container to be exactly the size of the prim */
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: black; }
-        
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        body, html { 
+            margin: 0; padding: 0; height: 100%; width: 100%; 
+            overflow: hidden; background: black; 
         }
-
-        iframe { 
+        .main-container {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        iframe { 
+            width: 100%; height: 100%; 
             border: none;
-            /* This is the magic line that stretches the video to fill the box */
-            object-fit: cover; 
+            /* This forces the video to stretch to fill the container exactly */
+            object-fit: fill; 
         }
     </style>
 </head>
 <body>
-    <div class="video-wrapper">
+    <div class="main-container">
         <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL2AurSMq2mklYE1m3BFTHRZDDAV_lqtK7&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 </body>
