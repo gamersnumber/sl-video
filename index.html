@@ -12,7 +12,7 @@
     <script>
         // Reads "?v=YOUR_ID" from the URL, or defaults to 2MRLKI6cJUY if empty
         const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('v') || '2MRLKI6cJUY';
+        const videoId = urlParams.get('v');
 
         document.getElementById('myPlayer').src = 'https://www.youtube-nocookie.com/embed/' + videoId;
     </script>
