@@ -7,7 +7,16 @@
     </style>
 </head>
 <body>
-    <iframe src="https://www.youtube-nocookie.com/embed/2MRLKI6cJUY" allow="encrypted-media" allowfullscreen></iframe>
-    <iframe src="https://www.youtube-nocookie.com/embed/57DpRRYrAP4" allow="encrypted-media" allowfullscreen></iframe>
+<iframe id="myPlayer" allow="encrypted-media" allowfullscreen></iframe>
+
+    <script>
+        // Reads "?v=YOUR_ID" from the URL, or defaults to 2MRLKI6cJUY if empty
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('v') || '2MRLKI6cJUY';
+
+        document.getElementById('myPlayer').src = 'https://www.youtube-nocookie.com/embed/' + 2MRLKI6cJUY;
+    </script>
+
+    
 </body>
 </html>
