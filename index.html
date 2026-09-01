@@ -9,14 +9,46 @@
 <body>
 <iframe id="myPlayer" allow="encrypted-media" allowfullscreen></iframe>
 
-    <script>
-        // Reads "?v=YOUR_ID" from the URL, or defaults to 2MRLKI6cJUY if empty
-        const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('v');
 
-        document.getElementById('myPlayer').src = 'https://www.youtube-nocookie.com/embed/' + videoId;
+
+
+<script>
+        // REPLACE THIS with your actual YouTube Channel ID (starts with UC)
+        const channelId = 'sceneris7519'; 
+
+        const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const wrapper = document.getElementById('video-wrapper');
+                wrapper.innerHTML = ''; // Clear loading text
+
+                // Grab only the first 3 latest videos
+                const latestVideos = data.items.slice(0, 3);
+
+                latestVideos.forEach(item => {
+                    // Extract Video ID from YouTube link URL
+                    const videoId = item.link.split('v=')[1];
+
+                    // Create iframe element
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+                    iframe.allowFullscreen = true;
+                    
+                    wrapper.appendChild(iframe);
+                });
+            })
+            .catch(error => {
+                document.getElementById('video-wrapper').innerText = 'Failed to load videos.';
+                console.error('Error fetching YouTube RSS:', error);
+            });
     </script>
 
+    
+
+    
     
 </body>
 </html>
