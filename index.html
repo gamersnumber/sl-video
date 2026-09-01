@@ -10,14 +10,14 @@
     }
     .video-container { 
         display: grid; 
-        /* Auto-fits as many 300px columns as possible, then wraps to 1 column on smaller views */
+        /* Creates 2 columns on desktop, 1 on mobile */
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
         gap: 15px; 
         width: 100%; 
     }
     iframe { 
         width: 100%; 
-        height: 220px; 
+        height: 250px; 
         border: none; 
     }
 </style>
@@ -64,7 +64,6 @@
             });
     </script>
 
-    
 
     
     
